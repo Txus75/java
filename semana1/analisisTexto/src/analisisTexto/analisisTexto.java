@@ -3,6 +3,7 @@ package analisisTexto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class analisisTexto {
@@ -40,12 +41,31 @@ public class analisisTexto {
 		}
 	}
 	
+	// Método para devolver un ArrayList ordenado con las palabras más repetidas
 	static void palabrasRepetidas(ArrayList<String> palabras) {
-		// ArrayList
-		ArrayList<String> palabrasRepes = new ArrayList<String>();
 		
-		// ArrayList bidimensional
-		//ArrayList<ArrayList<String>> palabrasRepes = new ArrayList<ArrayList<String>>();
+		// Objeto palabra-veces
+		class palabraVeces {
+			private String palabra;
+			private String veces;
+			public palabraVeces(String palabra2, int repeticiones) {
+				palabra = palabra2;
+				veces = String.valueOf(repeticiones);
+			}
+			public String getPalabra() {
+				return palabra;
+			}
+			public String getVeces() {
+				return veces;
+			}
+		}
+		
+		// ArrayList
+		ArrayList<palabraVeces> palabrasRepes = new ArrayList<palabraVeces>();
+		
+		// Ordenación preliminar de las palabras del ArrayList
+		Collections.sort(palabras, String.CASE_INSENSITIVE_ORDER);
+		
 		
 		// Comprobación de número de repeticiones
 		while (palabras.size() > 0) {
@@ -62,25 +82,24 @@ public class analisisTexto {
 				
 			}
 			
-			// add unidimensional
-			palabrasRepes.add(repeticiones + " " + palabra);
+			// add objeto al ArrayList
+			palabrasRepes.add(new palabraVeces(palabra, repeticiones));
 			
-			// add bidimensinal
-			//ArrayList<String> temp = new ArrayList<String>(); 
-			//temp.add(palabra);
-			//temp.add(String.valueOf(repeticiones));
-			//palabrasRepes.add(temp);
 		}
 		
-		// Ordenación
-		//Collections.sort(palabrasRepes);
-		Collections.sort(palabrasRepes, String.CASE_INSENSITIVE_ORDER);
+		// Ordenación		
+		
+		Collections.sort(palabrasRepes, new Comparator<palabraVeces>() {
+			public int compare(palabraVeces obj1, palabraVeces obj2) {
+				return obj2.getVeces().compareTo(obj1.getVeces());
+			}
+		});
 		
 		// Impresión de las palabras ordenadas
 		System.out.println("Las palabras más repetidas son:");
 		
-		for (int z = palabrasRepes.size() - 1; z >= 0; z--) {
-			System.out.println(palabrasRepes.get(z));
+		for(palabraVeces temp: palabrasRepes){
+		    System.out.println("La palabra: " + temp.getPalabra() + " se repite " + temp.getVeces() + " veces.");
 		}
 		
 	}
