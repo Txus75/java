@@ -7,11 +7,10 @@ public class Empleados {
 	private Double sueldo;
 	
 	// Constructor
-	public Empleados(String nombre, String dni, double sueldo) {
+	public Empleados(String nombre, String dni) {
 		super();
 		this.nombre = nombre;
 		this.dni = dni;
-		this.sueldo = sueldo;
 	}
 
 	// Seters y Geters
