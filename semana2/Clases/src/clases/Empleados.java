@@ -4,7 +4,7 @@ public class Empleados {
 	// Propiedades
 	private String nombre;
 	private String dni;
-	private Double sueldo;
+	private Double sueldo = 0.00;
 	
 	// Constructor
 	public Empleados(String nombre, String dni) {
@@ -38,8 +38,16 @@ public class Empleados {
 		this.sueldo = sueldo;
 	}
 
-	// Metodo
+	// Metodos
+	private Double getIRPF(Double sueldo) {
+		if (sueldo < 3000) {
+			return 0.85;
+		} else {
+			return 0.75;
+		}
+	}
+	
 	public Double sueldoNeto() {
-		return (sueldo * 0.85);
+		return (this.sueldo * getIRPF(this.sueldo));
 	}
 }
