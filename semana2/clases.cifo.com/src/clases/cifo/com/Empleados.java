@@ -1,7 +1,7 @@
 package clases.cifo.com;
 
 
-public class Empleados {
+public class Empleados implements Saludo {
 	// Propiedades
 	private String nombre;
 	private String dni;
@@ -50,5 +50,9 @@ public class Empleados {
 	
 	public Double sueldoNeto() {
 		return (this.sueldo * getIRPF(this.sueldo));
+	}
+	
+	public void saludo() {
+		System.out.println("Hola " + nombre + ".");
 	}
 }
