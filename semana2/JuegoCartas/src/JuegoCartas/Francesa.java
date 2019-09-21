@@ -1,9 +1,15 @@
 package JuegoCartas;
 
+import java.util.ArrayList;
+
 public class Francesa extends Baraja {
 	// Constructor
 	public Francesa() {
 		reiniciar();
+	}
+	
+	public ArrayList<Carta> getCartas() {
+		return cartas;
 	}
 	
 	// Metodo

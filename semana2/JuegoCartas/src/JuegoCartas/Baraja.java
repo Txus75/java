@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public abstract class Baraja {
 	// Propiedades
-	protected ArrayList<Carta> cartas;
+	protected ArrayList<Carta> cartas = new ArrayList<Carta>();
 	
 	// Métodos
 	public void barajar() {

@@ -2,13 +2,13 @@ package JuegoCartas;
 
 import java.util.ArrayList;
 
-public class jugador {
+public class Jugador {
 	// Propiedades
 	private String nombre;
 	private ArrayList<Carta> cartas;
 	
 	// Constructor
-	public jugador(String nombre) {
+	public Jugador(String nombre) {
 		super();
 		this.nombre = nombre;
 		cartas = new ArrayList<Carta>();
