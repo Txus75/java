@@ -8,10 +8,10 @@ public class Poker {
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 	
 	// Constructor
-	public Poker(ArrayList<String> jugadores) {
-		for (String i : jugadores) {
-			Jugador x = new Jugador(i);
-			addJugador(x);
+	public Poker(ArrayList<Jugador> jugadores) {
+		for (Jugador i : jugadores) {
+			//Jugador x = new Jugador(i);
+			addJugador(i);
 		}
 		baraja.barajar();
 	}

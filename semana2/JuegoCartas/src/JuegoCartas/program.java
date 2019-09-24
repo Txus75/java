@@ -12,6 +12,7 @@ public class program {
 		int juego;
 		boolean control = true;
 		ArrayList<String> jugadores = new ArrayList<String>();
+		ArrayList<Jugador> jugadorPoker = new ArrayList<Jugador>();
 		
 		// Elección de juego
 		do {
@@ -78,7 +79,9 @@ public class program {
 						nombre.trim();
 						
 						if (nombre.length() > 0) {
-							jugadores.add(nombre);
+							//jugadores.add(nombre);
+							Jugador x = new Jugador(nombre);
+							jugadorPoker.add(x);
 							controlPoker = false;
 						} else {
 							System.out.println("El nombre no es correcto.");
@@ -86,7 +89,7 @@ public class program {
 					} while(controlPoker);
 				}
 
-				Poker partida = new Poker(jugadores);
+				Poker partida = new Poker(jugadorPoker);
 				
 				partida.repartir();
 				
