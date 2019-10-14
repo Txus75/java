@@ -9,10 +9,19 @@ public class Main {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		// Pedir el bean
-		Saludo miSaludo = context.getBean("miSaludo", Saludo.class);
-				
+		//Saludos miSaludo = context.getBean("miSaludo", Saludos.class);
+		ISaludo miSaludo = context.getBean("miSaludo", Saludos.class);
+		
 		// Ejecutar algún método
 		System.out.println(miSaludo.hola());
+		System.out.println(miSaludo.adios());
+		
+		// Pedir el bean
+		ISaludo miVecino = context.getBean("miVecino", Vecino.class);
+		
+		// Ejecutar algún método
+		System.out.println(miVecino.hola());
+		System.out.println(miVecino.adios());
 		
 		// Cerrar el contexto
 		context.close();
