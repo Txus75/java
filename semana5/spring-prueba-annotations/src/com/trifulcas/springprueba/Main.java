@@ -5,34 +5,25 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		// Cargar el contexto
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		// Pedir el bean
-		//Saludos miSaludo = context.getBean("miSaludo", Saludos.class);
 		Saludos miSaludo = context.getBean("miSaludo", Saludos.class);
-		Saludos otroSaludo= context.getBean("miSaludo", Saludos.class);
-		
-		//Los dos son iguales (SIngleton por defecto)
-		System.out.println(miSaludo.equals(otroSaludo));
-		
-		//Y apuntan a la misma dirección de memoria
-		System.out.println(miSaludo);
-		System.out.println(otroSaludo);
 		
 		// Ejecutar algún método
 		System.out.println(miSaludo.hola());
-		System.out.println(miSaludo.adios());
 		
 		/*// Pedir el bean
-		Vecino miVecino = context.getBean("miVecino", Vecino.class);
+		ISaludo miVecino = context.getBean("vecino", Vecino.class);
 		
 		// Ejecutar algún método
-		System.out.println(miVecino.hola());
-		System.out.println(miVecino.adios());*/
+		System.out.println(miVecino.hola());*/
 		
 		// Cerrar el contexto
 		context.close();
+
 	}
 
 }

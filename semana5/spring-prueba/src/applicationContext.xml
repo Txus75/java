@@ -7,8 +7,18 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- Zona de definición de nuestros beans -->
-	<bean id="miSaludo" class="com.trifulcas.springprueba.Saludos">
+	
+	<bean id="saludoFormal" class="com.trifulcas.springprueba.Formal"></bean>
+	
+	<bean id="saludoInformal" class="com.trifulcas.springprueba.Informal"></bean>
+	
+	<bean id="miSaludo" class="com.trifulcas.springprueba.Saludos" init-method="iniciar" destroy-method="finalizar">
+		<constructor-arg ref="saludoFormal"></constructor-arg>
 	</bean>
+	
 	<bean id="miVecino" class="com.trifulcas.springprueba.Vecino">
+		<property name="saludo" ref="saludoInformal"></property>
+		<property name="nombre" value="Ana"></property>
 	</bean>
+	
 </beans>

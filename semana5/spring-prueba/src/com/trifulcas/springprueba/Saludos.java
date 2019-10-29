@@ -1,14 +1,27 @@
 package com.trifulcas.springprueba;
 
-public class Saludos implements ISaludo {
+public class Saludos {
 	
-	@Override
-	public String hola() {
-		return "Hola ¿Qué tal?";
+	private ISaludo _saludo;
+	
+	public Saludos(ISaludo miSaludo) {
+		_saludo = miSaludo;
 	}
-	@Override
+	
+	public String hola() {
+		return _saludo.hola();
+	}
+	
 	public String adios() {
-		return "Adios, que te vaya bien.";
+		return _saludo.adios();
+	}
+	
+	public void iniciar() {
+		System.out.println("Estamos iniciando la clase.");
+	}
+	
+	public void finalizar() {
+		System.out.println("Estamos finalizando la clase.");
 	}
 
 }
