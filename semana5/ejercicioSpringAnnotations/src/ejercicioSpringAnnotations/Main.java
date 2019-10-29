@@ -15,6 +15,7 @@ public class Main {
 		
 		// Prueba
 		System.out.println(codificar1.codificador("Prueba de Spring con Palabras e Invertir"));
+		System.out.println(codificar1.decodificador("abeurP ed gnirpS noc sarbalaP e ritrevnI"));
 		
 		// Cerrar el contexto
 		context1.close();
@@ -28,6 +29,7 @@ public class Main {
 				
 		// Prueba
 		System.out.println(codificar2.codificador("Prueba de Spring con Palabras y Cesar"));
+		System.out.println(codificar2.decodificador("RTWGDC FG URTKPI EQP RCNCDTCU A EGUCT"));
 				
 		// Cerrar el contexto
 		context2.close();
